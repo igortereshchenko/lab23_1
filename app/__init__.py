@@ -36,7 +36,7 @@ def create_app(config_class=Config):
     return app
 
 
-create_app(Config)
+#create_app(Config)
 app.config.from_object(Config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
