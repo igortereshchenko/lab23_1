@@ -24,6 +24,7 @@ class Repo(db.Model):
     name = db.Column(db.String(30))
     deep_link = db.Column(db.String(50))
     related_link = db.Column(db.String(50))
+    language = db.Column(db.String(50))
 
     def __repr__(self):
         return '<Repo {}>'.format(self.name)

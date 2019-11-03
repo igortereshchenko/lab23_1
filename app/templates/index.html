@@ -13,6 +13,7 @@
 
   <!-- Custom styles for this template -->
   <link href="/css/simple-sidebar.css" rel="stylesheet">
+  <script src="https://d3js.org/d3.v4.js"></script>
 
 </head>
 
@@ -53,6 +54,10 @@
           </ul>
         </div>
       </nav>
+      {% if not form %}
+        <div id="my_dataviz" style="margin-left: 40px;"></div>
+        <div id="my_dataviz1" style="margin-left: 40px;"></div>
+      {% endif %}
 
       <div class="container-fluid">
         <form method="POST" action="/{% if is_exist %}edit{% else %}create{% endif %}/{{model_name}}">
@@ -79,6 +84,8 @@
   <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Menu Toggle Script -->
+    <script src="{{url_for('.static', filename='js/jquery.slim.min.js')}}"></script>
+  <script src="{{url_for('.static', filename='js/plots.js')}}"></script>
   <script>
     $("#menu-toggle").click(function(e) {
       e.preventDefault();
