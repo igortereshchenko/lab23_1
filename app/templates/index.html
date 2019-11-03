@@ -57,6 +57,7 @@
       {% if not form %}
         <div id="my_dataviz" style="margin-left: 40px;"></div>
         <div id="my_dataviz1" style="margin-left: 40px;"></div>
+          <script src="{{url_for('.static', filename='js/plots.js')}}"></script>
       {% endif %}
 
       <div class="container-fluid">
@@ -85,7 +86,7 @@
 
   <!-- Menu Toggle Script -->
     <script src="{{url_for('.static', filename='js/jquery.slim.min.js')}}"></script>
-  <script src="{{url_for('.static', filename='js/plots.js')}}"></script>
+
   <script>
     $("#menu-toggle").click(function(e) {
       e.preventDefault();

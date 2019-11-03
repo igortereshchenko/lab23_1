@@ -51,7 +51,7 @@ function plot1() {
             "translate(" + (width/2) + " ," +
                            (height + margin.top + 20) + ")")
       .style("text-anchor", "middle")
-      .text("Lecture activities count (comments + likes + views)");
+      .text("user id");
 
 
   // text label for the y axis
@@ -61,7 +61,7 @@ function plot1() {
       .attr("x",0 - (height / 2))
       .attr("dy", "1em")
       .style("text-anchor", "middle")
-      .text("Student lecture grade");
+      .text("count of projects");
 }
 
 function plot2() {
