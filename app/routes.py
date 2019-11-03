@@ -76,14 +76,14 @@ def get_plot_data_file():
     repos_by_lang = db.session.query(Repo.language, func.count(Repo.repo_id)).group_by(Repo.language).all()
     repos_by_user = db.session.query(Repo.user_id, func.count(Repo.repo_id)).group_by(Repo.user_id).all()
 
-    with open('app/static/csv/plot1.csv', mode='w+') as p:
+    with open('app/static/csv/plot1.csv', mode='w') as p:
         p_writer = csv.writer(p, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
         p_writer.writerow(['repo_count', 'language'])
         for repo in repos_by_lang:
             p_writer.writerow([repo[1], repo[0]])
 
-    with open('app/static/csv/plot2.csv', mode='w+') as p:
+    with open('app/static/csv/plot2.csv', mode='w') as p:
         p_writer = csv.writer(p, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
         p_writer.writerow(['repo_count', 'user_id'])
