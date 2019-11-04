@@ -1,0 +1,43 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+    <!-- Editable table -->
+    <div class="card">
+        <h3 class="card-header text-center font-weight-bold text-uppercase py-4">{{ name }}</h3>
+        <div class="card-body">
+            <div id="table" class="table-editable">
+      <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i
+              class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
+                <table class="table table-bordered table-responsive-md table-striped text-center">
+                    <thead>
+                    <tr>
+                        <th class="text-center">User id</th>
+                        <th class="text-center">Name</th>
+                        <th class="text-center">Email</th>
+                        <th class="text-center">Birthday</th>
+                        <th class="text-center">Phone</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for row in users %}
+                        <tr>
+                            <td class="pt-3-half" contenteditable="true">{{row.id}}</td>
+                            <td class="pt-3-half" contenteditable="true">{{row.name}}</td>
+                            <td class="pt-3-half" contenteditable="true">{{row.email}}</td>
+                            <td class="pt-3-half" contenteditable="true">{{row.birthday}}</td>
+                            <td class="pt-3-half" contenteditable="true">{{row.phone}}</td>
+
+                    {% endfor %}
+
+                    <!-- This is our clonable table line -->
+
+                    </tbody>
+                </table>
+            <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0" allign="center">
+                                    <a href="https://https://labdef.herokuapp.com/insert">Create</a></button></span>
+            </div>
+        </div>
+    </div>
+    <!-- Editable table -->
+{% endblock %}
