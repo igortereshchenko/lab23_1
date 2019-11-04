@@ -6,6 +6,17 @@ from sqlalchemy.schema import CreateTable
 from app import db
 
 
+class Soft(db.Model):
+    soft_id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50))
+    version = db.Column(db.Integer)
+    cost = db.Column(db.Integer)
+    creation_date = db.Column(db.Date)
+
+    def __repr__(self):
+        return '<Soft {}>'.format(self.doc_id)
+
+
 class Users(db.Model):
     user_id = db.Column(db.Integer, primary_key=True)
     login = db.Column(db.String(20))
@@ -21,6 +32,7 @@ class Users(db.Model):
 class Repo(db.Model):
     repo_id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
+    soft_id = db.Column(db.Integer, db.ForeignKey('soft.soft_id'))
     name = db.Column(db.String(30))
     deep_link = db.Column(db.String(50))
     related_link = db.Column(db.String(50))
@@ -48,6 +60,7 @@ class Doc(db.Model):
 
     def __repr__(self):
         return '<Doc {}>'.format(self.doc_id)
+
 
 # DeclarativeBase = declarative_base()
 #
